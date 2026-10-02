@@ -1,0 +1,8 @@
+{
+  "name": "SANTOS subset",
+  "description": "A subset of the 11,086-table SANTOS lake: the 80 benchmark query tables and 420 tables drawn at random (seed 42), minus the few that could not be profiled.",
+  "n_tables": 493,
+  "build_profile_s": 37.2,
+  "build_embedding_s": 7.7,
+  "build_total_s": 44.9
+}

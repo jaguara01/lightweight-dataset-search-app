@@ -1,0 +1,8 @@
+# Embedding model: downloaded on first use, or with `python download_model.py`
+model/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store

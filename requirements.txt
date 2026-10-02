@@ -1,0 +1,16 @@
+# Python 3.13. The encoder versions are pinned to those that built the lake indexes,
+# so an uploaded table is embedded exactly like the stored ones.
+# On Linux, torch comes from the CPU-only index: the default Linux wheel pulls several GB
+# of CUDA libraries the app never uses. macOS and Windows use the normal wheel.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.11.0+cpu; sys_platform == "linux"
+torch==2.11.0; sys_platform != "linux"
+sentence-transformers==5.4.0
+transformers==5.5.3
+faiss-cpu==1.13.2
+duckdb==1.5.1
+streamlit>=1.50
+pandas
+numpy
+jellyfish
+tqdm

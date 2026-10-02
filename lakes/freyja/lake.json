@@ -1,0 +1,8 @@
+{
+  "name": "Freyja lake",
+  "description": "Real-world CSV tables distributed with the Freyja benchmark.",
+  "n_tables": 161,
+  "build_profile_s": 18.6,
+  "build_embedding_s": 9.9,
+  "build_total_s": 28.5
+}
