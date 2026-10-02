@@ -1,7 +1,7 @@
 # Lightweight dataset search
 
 A Streamlit demonstration of the **lightweight method** from the Master's thesis
-*Lightweight Dataset Search* (Master's Degree in Data Science, FIB, Universitat Politècnica de
+_Lightweight Dataset Search_ (Master's Degree in Data Science, FIB, Universitat Politècnica de
 Catalunya). Pick a data lake and a query table, and the app ranks every table of the lake by
 how useful it is to combine with the query.
 
@@ -60,14 +60,14 @@ every join-eligible column, a few column statistics, a table embedding and a str
 vector. A query is scored against every metaprofile; the tables themselves are never read
 again.
 
-| Column | Meaning |
-|---|---|
-| Similarity | sqrt(joinability x (0.7 x table semantic + 0.3 x structural similarity)) |
-| Joinability | can the two tables be joined? Per column pair: MinHash-estimated containment x compatibility prior (type and word length); aggregated by noisy-OR over the 3 strongest keys |
-| Table semantic | cosine of the two table embeddings (topic) |
-| Structural similarity | cosine of the role / cardinality / length histograms (shape) |
-| Join columns | every join key as query column ↔ candidate column (pair joinability); the best weaker pair if there is none |
-| Join keys | query columns whose best match scores at least 0.5 |
+| Column                | Meaning                                                                                                                                                                     |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Similarity            | sqrt(joinability x (0.7 x table semantic + 0.3 x structural similarity))                                                                                                    |
+| Joinability           | can the two tables be joined? Per column pair: MinHash-estimated containment x compatibility prior (type and word length); aggregated by noisy-OR over the 3 strongest keys |
+| Table semantic        | cosine of the two table embeddings (topic)                                                                                                                                  |
+| Structural similarity | cosine of the role / cardinality / length histograms (shape)                                                                                                                |
+| Join columns          | every join key as query column ↔ candidate column (pair joinability); the best weaker pair if there is none                                                                 |
+| Join keys             | query columns whose best match scores at least 0.5                                                                                                                          |
 
 Above the table, the app shows the query time and, for the selected lake, the number of
 tables, the size of its cache and the time it took to build (profiling and embedding).
@@ -77,10 +77,10 @@ tables, the size of its cache and the time it took to build (profiling and embed
 **No table is stored.** A lake holds only hashes, counts, statistics and embeddings, so the
 raw values cannot be read back from it. Table and column names are visible.
 
-| Lake | Tables | Cache | Source |
-|---|---|---|---|
-| Freyja lake | 161 | 0.7 MB | the real-world tables of the Freyja benchmark |
-| SANTOS subset | 493 | 2.0 MB | the 80 SANTOS benchmark query tables + 420 random tables of the SANTOS lake; 7 could not be profiled |
+| Lake          | Tables | Cache  | Source                                                                                               |
+| ------------- | ------ | ------ | ---------------------------------------------------------------------------------------------------- |
+| Freyja lake   | 161    | 0.7 MB | the real-world tables of the Freyja benchmark                                                        |
+| SANTOS subset | 493    | 2.0 MB | the 80 SANTOS benchmark query tables + 420 random tables of the SANTOS lake; 7 could not be profiled |
 
 ## Repository layout
 
@@ -99,9 +99,3 @@ img/                 FIB / UPC logo and the screenshots of this README
 The encoder versions in `requirements.txt` are those that built the lake indexes. Another
 version encodes an uploaded file slightly differently, which moves similarity scores in the
 second or third decimal.
-
-## Credits
-
-Author: Alexis Andre L Vendrix. Thesis supervisor: Marc Maynou Yelamos. Thesis
-co-supervisor: Sergi Nadal Francesch. Facultat d'Informàtica de Barcelona (FIB), Universitat
-Politècnica de Catalunya (UPC) - BarcelonaTech.
